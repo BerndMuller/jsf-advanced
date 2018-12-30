@@ -1,0 +1,36 @@
+<ui:composition 
+	xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	template="/WEB-INF/templates/main.xhtml">
+
+	<ui:define name="header">#{msg.title}</ui:define>
+	
+	<ui:define name="main">
+
+		<h:panelGrid columns="2">
+			HTTP-Header:
+			<h:outputText value="Accept-Language: #{header['Accept-Language']}" />
+			<h:outputText value="#{msg.welcome}" />
+			<h:panelGroup>
+				Aktuelle Lokalisierung: #{localeController.locale}
+				<h:graphicImage value="#{msg.flag}" height="14em"/>
+			</h:panelGroup>
+			<h:panelGroup>
+				<h:outputLabel for="input" value="#{msg.input}: " />
+				<h:inputText id="input" value="#{localeController.value}" size="10">
+					<f:convertNumber pattern="000.00" />
+				</h:inputText>
+			</h:panelGroup>
+			<h:panelGroup>
+				<h:commandButton value="#{msg.save}" action="#{localeController.save}" />
+				<h:commandButton value="#{msg.delete}" />
+				<h:commandButton value="#{msg.cancel}" />
+			</h:panelGroup>
+		</h:panelGrid>
+		<h:messages />
+		
+	</ui:define>
+
+</ui:composition>

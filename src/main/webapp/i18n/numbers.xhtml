@@ -1,0 +1,31 @@
+<ui:composition 
+	xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	template="/WEB-INF/templates/main.xhtml">
+
+	<ui:define name="header">Klassen als Resource-Bundles</ui:define>
+	
+	<ui:define name="main">
+
+		<h:panelGrid id="numbers" columns="2">
+			<h:outputText value="1" /><h:outputText value="#{number._1}" />
+			<h:outputText value="2" /><h:outputText value="#{number._2}" />
+			<h:outputText value="3" /><h:outputText value="#{number._3}" />
+			<h:outputText value="4" /><h:outputText value="#{number._4}" />
+			<h:outputText value="5" /><h:outputText value="#{number._5}" />
+			<h:outputText value="6" /><h:outputText value="#{number._6}" />
+			<h:outputText value="7" /><h:outputText value="#{number._7}" />
+			<h:outputText value="8" /><h:outputText value="#{number._8}" />
+			<h:outputText value="9" /><h:outputText value="#{number._9}" />
+		</h:panelGrid>
+		
+		<h:selectOneRadio value="#{localeController.locale}">
+			<f:selectItems value="#{localeController.supportedNumbersLocales}" />
+			<f:ajax listener="#{localeController.ajaxListener}" render="numbers" />
+		</h:selectOneRadio>
+		
+	</ui:define>
+
+</ui:composition>

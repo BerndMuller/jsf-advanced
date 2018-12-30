@@ -1,0 +1,9 @@
+title = 国际化和本地化
+welcome = 欢迎使用JSF-Praxis进行本地化
+input = 值 (带小数点)
+save = 保存
+delete = 删除
+cancel = 取消
+change = 改变本地化
+flag = /resources/images/china-flag.svg
+# translated by Yunrui Wang and Libing Zhuo

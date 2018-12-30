@@ -1,0 +1,20 @@
+<ui:composition 
+	xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	template="/WEB-INF/templates/main.xhtml">
+
+	<ui:define name="header">Managed Beans und Lokalisierung</ui:define>
+	
+	
+	<ui:define name="main">
+
+		<h:panelGrid columns="1">
+			<f:facet name="header">Lokalisierte Workflows</f:facet>
+			<h:commandButton value="Start workflow" action="#{localeController.startWorkflow}" />
+		</h:panelGrid>
+		
+	</ui:define>
+
+</ui:composition>

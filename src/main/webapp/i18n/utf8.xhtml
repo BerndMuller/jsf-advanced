@@ -1,0 +1,39 @@
+<ui:composition 
+	xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	template="/WEB-INF/templates/main.xhtml">
+
+	<ui:define name="header">UTF-8-Codierungen</ui:define>
+	
+	<ui:define name="main">
+
+		<h:panelGrid columns="2">
+			<h:outputText value="#{utf8.welcome}" />
+			<h:panelGroup>
+				#{localeController.locale} &#x000A0;
+				<h:graphicImage value="#{utf8.flag}" height="12em"/>
+			</h:panelGroup>
+			<h:panelGroup>
+				<h:outputLabel for="input" value="#{utf8.input}: " />
+				<h:inputText id="input" value="#{localeController.value}" size="10">
+					<f:convertNumber pattern="00000.00" />
+				</h:inputText>
+			</h:panelGroup>
+			<h:panelGroup>
+				<h:commandButton value="#{utf8.save}" />
+				<h:commandButton value="#{utf8.delete}" />
+				<h:commandButton value="#{utf8.cancel}" />
+			</h:panelGroup>
+			<h:selectOneMenu value="#{localeController.locale}">
+				<f:selectItems value="#{localeController.supportedUtf8Locales}" />
+			</h:selectOneMenu>
+			<h:commandButton value="#{utf8.change}" action="#{localeController.changeLocale}" />
+			
+		</h:panelGrid>
+		<h:messages />
+
+	</ui:define>
+
+</ui:composition>
