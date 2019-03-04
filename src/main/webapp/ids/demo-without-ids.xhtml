@@ -1,0 +1,45 @@
+<ui:composition 
+	xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	template="/WEB-INF/templates/main.xhtml">
+
+	<ui:define name="header">Client- und Komponenten-Ids (Implizite Ids)</ui:define>
+	
+	<ui:define name="main">
+
+		<h:panelGrid columns="1">
+			<h:panelGrid columns="3">
+				<h:outputLabel value="Eingabe: ">
+					<h:inputText value="#{idController.input}"/>
+				</h:outputLabel>
+				<h:commandButton value="Und ab ..." action="#{idController.showIds}"/>
+			</h:panelGrid>
+		</h:panelGrid>
+
+		<br/><br/>
+		
+		<h:panelGrid columns="1">
+			<h:dataTable value="#{idController.comedians}" var="comedian">
+				<f:facet name="header">Comedians</f:facet>
+				<h:column>
+					<f:facet name="header">Vorname</f:facet>
+					<h:outputText value="#{comedian.firstname}" />
+				</h:column>
+				<h:column>
+					<f:facet name="header">Nachname</f:facet>
+					<h:outputText value="#{comedian.lastname}" />
+				</h:column>
+			</h:dataTable>
+		</h:panelGrid>		
+		
+		<h:panelGrid columns="1">
+			<f:facet name="header">Bemerkung</f:facet>
+			Formular-Id muss in <code>main.xhtml</code> gelöscht werden.
+		</h:panelGrid>
+		
+		
+	</ui:define>
+
+</ui:composition>

@@ -1,0 +1,41 @@
+<ui:composition 
+	xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	template="/WEB-INF/templates/main.xhtml">
+
+	<ui:define name="header">Client- und Komponenten-Ids (Explizite Ids)</ui:define>
+	
+	<ui:define name="main">
+
+		<h:panelGrid columns="1">
+			<h:panelGrid id="panel" columns="3">
+				<h:outputLabel id="out" for="in" value="Eingabe: " />
+				<h:inputText id="in" value="#{idController.input}"/>
+				<h:commandButton id="button" value="Und ab ..." action="#{idController.showIds}"/>
+			</h:panelGrid>
+		</h:panelGrid>
+
+		<br/><br/>
+		
+		<h:panelGrid columns="1">
+			<h:dataTable id="table" value="#{idController.comedians}" var="comedian">
+				<f:facet name="header">Comedians</f:facet>
+				<h:column>
+					<f:facet name="header">Vorname</f:facet>
+					<h:outputText id="first" value="#{comedian.firstname}" />
+				</h:column>
+				<h:column>
+					<f:facet name="header">Nachname</f:facet>
+					<h:outputText id="last" value="#{comedian.lastname}" />
+				</h:column>
+			</h:dataTable>
+		</h:panelGrid>		
+		
+		
+		<ui:debug />
+		
+	</ui:define>
+
+</ui:composition>

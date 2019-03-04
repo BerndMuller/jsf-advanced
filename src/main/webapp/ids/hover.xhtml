@@ -1,0 +1,28 @@
+<ui:composition 
+	xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	template="/WEB-INF/templates/main.xhtml">
+
+	<ui:define name="header">Client-Ids (hover)</ui:define>
+	
+	<ui:define name="main">
+
+		<h:panelGrid columns="2">
+			<h:outputLabel id="label" for="input" value="Name:" 
+				onmouseover="document.forms.form['form:input'].value = ' Ihr Name'"
+				onmouseout= "document.forms.form['form:input'].value = ''" />
+			<h:inputText id="input" value="#{idController.input}" 
+				onfocus="if (this.value == 'Eingabe erforderlich') {this.value = '';} this.style.color = 'black';" />
+<!-- 
+			<h:inputText id="input" value="#{idController.input}" 
+				onfocus="if (this.value == '#{idController.message}') {this.value = '';} this.style.color = 'black';" />
+ -->
+			<h:commandButton id="button" value="Speichern" action="#{idController.save}" />
+		</h:panelGrid>
+
+		
+	</ui:define>
+
+</ui:composition>

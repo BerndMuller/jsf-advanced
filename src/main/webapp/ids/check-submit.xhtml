@@ -1,0 +1,29 @@
+<ui:composition 
+	xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	template="/WEB-INF/templates/main.xhtml">
+
+	<ui:define name="header">Client-Ids (check to submit)</ui:define>
+	
+	<ui:define name="main">
+
+		<h:panelGrid columns="2">
+			<f:facet name="header">Check to Submit</f:facet>
+			<h:panelGroup>
+				<h:selectBooleanCheckbox title="Check to submit" onclick="submitForm('form:cl')" />
+				<h:commandLink id="cl" actionListener="#{idController.listener}" style="display:none; visibility:hidden" />
+			</h:panelGroup>
+		</h:panelGrid>
+		
+  		<h:outputScript target="head">
+			function submitForm(id) {
+				var fire = document.getElementById(id);
+				fire.dispatchEvent(new Event('click'));
+			}
+		</h:outputScript>
+
+	</ui:define>
+
+</ui:composition>
