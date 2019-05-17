@@ -1,4 +1,4 @@
-package de.ostfalia.tracim.util;
+package de.jsfpraxis.advanced.config;
 
 import java.util.logging.Logger;
 
