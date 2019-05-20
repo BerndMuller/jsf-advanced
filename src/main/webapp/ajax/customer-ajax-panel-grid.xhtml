@@ -1,0 +1,17 @@
+<ui:component xmlns:h="http://xmlns.jcp.org/jsf/html" xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+
+			<h:panelGrid columns="2">
+				Vorname:	
+				<h:inputText id="firstname" value="#{ajaxController.customer.firstName}" />
+				Nachname:
+				<h:inputText id="lastname" value="#{ajaxController.customer.lastName}" />
+				
+				<h:graphicImage library="icons" name="jsf-logo-no-text.png"
+					onclick="jsf.ajax.request(this, event, {execute: 'form:firstname form:lastname', render: 'form:whole' }); return false;"  />
+					
+				<h:panelGroup />
+				Kompletter Name:
+				<h:outputText id="whole" value="#{ajaxController.wholeCustomerName()}" />
+			</h:panelGrid>
+
+</ui:component>
