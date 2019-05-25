@@ -1,0 +1,35 @@
+<ui:composition 
+	xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	template="/WEB-INF/templates/main.xhtml">
+
+	<ui:define name="header">Ajax</ui:define>
+	
+	<ui:define name="main">
+		
+		<h:panelGrid id="content">
+			<f:facet name="header">Navigation mit Ajax</f:facet>
+			
+			<h:commandButton action="#{ajaxController.toTarget}" value="Navigation mit &lt;f:ajax execute=&#34;@form&#34; render=&#34;@form&#34; />">
+				<f:ajax execute="@form" render="@form" />
+			</h:commandButton>
+			
+			<h:commandButton action="#{ajaxController.toTarget}" value="Navigation mit &lt;f:ajax execute=&#34;@this&#34; render=&#34;@none&#34; />">
+				<f:ajax execute="@this" render="@none" />
+			</h:commandButton>
+
+			<h:commandButton action="#{ajaxController.toTarget}" value="Navigation mit &lt;f:ajax />">
+				<f:ajax />
+			</h:commandButton>
+			
+			<h:graphicImage library="icons" name="jsf-logo.png">
+				<f:ajax event="click" listener="#{ajaxController.redirect}" />
+			</h:graphicImage>
+					
+		</h:panelGrid>
+
+	</ui:define>
+
+</ui:composition>

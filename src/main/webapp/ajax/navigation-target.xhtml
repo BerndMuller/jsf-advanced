@@ -1,0 +1,25 @@
+<ui:composition 
+	xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	template="/WEB-INF/templates/main.xhtml">
+
+	<ui:define name="header">Ajax</ui:define>
+	
+	<ui:define name="main">
+
+		<h:panelGrid columns="1">
+			<f:facet name="header">Navigationsziel</f:facet>
+			
+			<h:panelGroup>
+				Diese Seite ist das Navigationsziel verschiedener Ajax-Beispiele der Seite <a href="navigation.jsf">navigation.xhtml</a>
+			</h:panelGroup>
+
+			<h:commandButton action="navigation?faces-redirect=true" value="Zurück" />
+
+		</h:panelGrid>
+		
+	</ui:define>
+
+</ui:composition>
