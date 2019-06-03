@@ -7,6 +7,7 @@ import java.util.logging.Logger;
 import javax.enterprise.context.RequestScoped;
 import javax.faces.context.ExternalContext;
 import javax.faces.context.FacesContext;
+import javax.faces.context.PartialResponseWriter;
 import javax.faces.event.AjaxBehaviorEvent;
 import javax.inject.Inject;
 import javax.inject.Named;
@@ -18,6 +19,8 @@ public class AjaxController {
 	private static final Logger logger = Logger.getLogger(AjaxController.class.getCanonicalName());
 	
 	private Customer customer;
+	
+	private String input; 
 	
 	@Inject
 	FacesContext facesContext;
@@ -52,6 +55,31 @@ public class AjaxController {
 		externalContext.redirect(urlEncoded);
 	}
 	
+	/**
+	 *  Gibt die Eingabe in 'input' in einem JavaScript-Fenster aus.
+	 */
+	public void javaScriptWindow() {
+        if (facesContext.getPartialViewContext().isAjaxRequest()) {
+            try {
+                externalContext.setResponseContentType("text/xml");
+                externalContext.addResponseHeader("Cache-Control", "no-cache");
+                PartialResponseWriter writer = facesContext.getPartialViewContext().getPartialResponseWriter();
+                writer.startDocument();
+                writer.startEval();
+                writer.write("alert('Die Eingabe ist \\'" + input + "\\'');");
+                // Achtung! Cross-Site Scripting-Gefahr, z.B. durch Eingabe 'document.URL'
+                // writer.write("alert('Die Eingabe ist ' + " + input + ");");
+                writer.endEval();
+                writer.endDocument();
+                writer.flush();
+                facesContext.responseComplete();
+            } catch (Exception e) {
+                logger.warning("Fehler in 'javaScriptWindow()'");
+            }
+        }
+	}
+
+	
 	public String toTarget() {
 		return "navigation-target.jsf";
 	}
@@ -66,6 +94,14 @@ public class AjaxController {
 	}
 	public void setCustomer(Customer customer) {
 		this.customer = customer;
+	}
+
+	
+	public String getInput() {
+		return input;
+	}
+	public void setInput(String input) {
+		this.input = input;
 	}
 
 }

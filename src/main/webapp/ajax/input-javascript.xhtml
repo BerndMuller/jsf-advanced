@@ -1,0 +1,21 @@
+<ui:composition 
+	xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	template="/WEB-INF/templates/main.xhtml">
+
+	<ui:define name="header">Ajax</ui:define>
+	
+	<ui:define name="main">
+		
+		<h:panelGrid id="content">
+			<f:facet name="header">Texteingabe und JavaScript</f:facet>
+			<h:inputText value="#{ajaxController.input}">
+				<f:ajax listener="#{ajaxController.javaScriptWindow}" event="blur" />
+			</h:inputText>
+		</h:panelGrid>
+
+	</ui:define>
+
+</ui:composition>
