@@ -20,7 +20,10 @@ public class AjaxController {
 	
 	private Customer customer;
 	
-	private String input; 
+	private String input;
+	
+	private Bezahlart bezahlart;   // fuer Beispiel 'Nicht gerenderte Komponenten'
+	private Bezahlinfo bezahlinfo; // fuer Beispiel 'Nicht gerenderte Komponenten'
 	
 	@Inject
 	FacesContext facesContext;
@@ -30,6 +33,11 @@ public class AjaxController {
 
 	public AjaxController() {
 		customer = new Customer();
+		bezahlart = Bezahlart.BANKEINZUG;
+	}
+	
+	public void update() {
+		logger.info("update() aufgefufen");
 	}
 	
 	/**
@@ -102,6 +110,21 @@ public class AjaxController {
 	}
 	public void setInput(String input) {
 		this.input = input;
+	}
+	
+
+	public Bezahlart getBezahlart() {
+		return bezahlart;
+	}
+	public void setBezahlart(Bezahlart bezahlart) {
+		this.bezahlart = bezahlart;
+	}
+
+	public Bezahlinfo getBezahlinfo() {
+		return bezahlinfo;
+	}
+	public void setBezahlinfo(Bezahlinfo bezahlinfo) {
+		this.bezahlinfo = bezahlinfo;
 	}
 
 }

@@ -1,0 +1,64 @@
+<ui:composition 
+	xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:fn="http://xmlns.jcp.org/jsp/jstl/functions"
+	template="/WEB-INF/templates/main.xhtml">
+
+	<ui:define name="header">Ajax</ui:define>
+	
+	<ui:define name="main">
+		<f:metadata>
+			<f:importConstants type="de.jsfpraxis.advanced.ajax.Bezahlart"/>
+		</f:metadata>
+	
+		<h:panelGrid>
+			<f:facet name="header">Nicht gerenderte Komponenten</f:facet>
+			Zahlung per
+			<h:selectOneRadio value="#{ajaxController.bezahlart}">
+				<!--  geht nicht
+				<f:ajax render="form:einzug form:karte form:rechnung" />
+				 -->
+				<!-- 
+				<f:ajax render="@form" />
+				 -->
+				<f:ajax render="wrapper" />
+				<!-- 
+				<f:selectItems value="#{Bezahlart.values()}" />
+				 -->
+				<f:selectItems value="#{Bezahlart.values()}" var="art" itemLabel="#{fn:substring(art, 0, 1)}#{fn:toLowerCase(fn:substring(art, 1, -1))}" />
+			</h:selectOneRadio>
+		</h:panelGrid>
+		
+		<h:panelGroup id="wrapper">
+			<h:panelGrid id="einzug" columns="2" rendered="#{ajaxController.bezahlart == Bezahlart.BANKEINZUG}">
+				<h:outputLabel value="Kontoinhaber" />
+				<h:inputText value="#{ajaxController.bezahlinfo.kontoinhaber}" />
+				<h:outputLabel value="Kontonummer" />
+				<h:inputText value="#{ajaxController.bezahlinfo.kontonummer}" />
+				<h:outputLabel value="Bankleitzahl" />
+				<h:inputText value="#{ajaxController.bezahlinfo.blz}" />
+			</h:panelGrid>
+		
+			<h:panelGrid id="karte" columns="2" rendered="#{ajaxController.bezahlart == Bezahlart.KREDITKARTE}">
+				<h:outputLabel value="Kreditkarte" />
+				<h:inputText value="#{ajaxController.bezahlinfo.kreditkarte}" />
+				<h:outputLabel value="gültig bis" />
+				<h:inputText value="#{ajaxController.bezahlinfo.gueltigBis}" />
+				<h:outputLabel value="Kartennummer" />
+				<h:inputText value="#{ajaxController.bezahlinfo.nummer}" />
+			</h:panelGrid>
+		
+			<h:panelGrid id="rechnung" columns="2" rendered="#{ajaxController.bezahlart == Bezahlart.RECHNUNG}">
+				<h:outputLabel value="Vor-/Nachname" />
+				<h:inputText value="#{ajaxController.bezahlinfo.name}" />
+				<h:outputLabel value="Straße Nummer" />
+				<h:inputText value="#{ajaxController.bezahlinfo.strasse}" />
+				<h:outputLabel value="PLZ Ort" />
+				<h:inputText value="#{ajaxController.bezahlinfo.plzOrt}" />
+			</h:panelGrid>
+		</h:panelGroup>
+	</ui:define>
+
+</ui:composition>
