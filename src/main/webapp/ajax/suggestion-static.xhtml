@@ -1,0 +1,28 @@
+<ui:composition 
+	xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:pt="http://xmlns.jcp.org/jsf/passthrough"
+	template="/WEB-INF/templates/main.xhtml">
+
+	<ui:define name="header">Ajax</ui:define>
+	
+	<ui:define name="main">
+	
+		<h:panelGrid>
+			<f:facet name="header">Suggestion mit statischen Auswahloptionen</f:facet>
+			Wählen Sie eine Sprache
+			<h:panelGroup>
+				<h:inputText id="language" value="#{languageController.language}" pt:list="languages" pt:autocomplete="off" />
+				<datalist id="languages">
+					<ui:repeat var="option" value="#{languageController.languages}">
+						<option>#{option}</option>
+					</ui:repeat>
+				</datalist>
+			</h:panelGroup>
+		</h:panelGrid>
+
+	</ui:define>
+
+</ui:composition>
