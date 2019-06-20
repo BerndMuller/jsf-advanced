@@ -1,6 +1,7 @@
 package de.jsfpraxis.advanced.ajax;
 
 import java.io.IOException;
+import java.util.Map;
 import java.util.Objects;
 import java.util.logging.Logger;
 
@@ -63,6 +64,10 @@ public class AjaxController {
 		externalContext.redirect(urlEncoded);
 	}
 	
+	public void delay(AjaxBehaviorEvent event) {
+		logger.info("eingegeben: " + input);
+	}
+	
 	/**
 	 *  Gibt die Eingabe in 'input' in einem JavaScript-Fenster aus.
 	 */
@@ -86,7 +91,17 @@ public class AjaxController {
             }
         }
 	}
-
+	
+	/**
+	 * Output all parameter of JavaScript function called by h:commandScript.
+	 *  
+	 * @return null
+	 */
+	public void commandScriptAction() {
+		logger.info("commandScriptAction() called");
+		Map<String, String> params = externalContext.getRequestParameterMap();
+		params.forEach((k,v)-> System.out.println("key: " + k + " value: " + v));
+	}
 	
 	public String toTarget() {
 		return "navigation-target.jsf";

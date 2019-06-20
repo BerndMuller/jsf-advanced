@@ -1,0 +1,24 @@
+<ui:composition 
+	xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	template="/WEB-INF/templates/main.xhtml">
+
+	<ui:define name="header">Ajax</ui:define>
+	
+	<ui:define name="main">
+		
+		<h:panelGrid>
+			<f:facet name="header">Verzögern des Ajax-Requests mit <code>delay</code></f:facet>
+			Beobachten Sie das Log und verändern Sie den delay-Wert.
+			<h:inputText id="input" value="#{ajaxController.input}">
+				<f:validateLength minimum="3" />
+				<f:ajax listener="#{ajaxController.delay}" event="keyup" delay="500" render="@form" />
+			</h:inputText>
+			<h:messages />
+		</h:panelGrid>
+
+	</ui:define>
+
+</ui:composition>

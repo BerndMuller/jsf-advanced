@@ -1,0 +1,31 @@
+<ui:composition 
+	xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	template="/WEB-INF/templates/main.xhtml">
+
+	<ui:define name="header">Ajax</ui:define>
+	
+	<ui:define name="main">
+	
+		<h:outputScript>
+			function sendToServer(){
+				sendData({ "mykey" : "myvalue", "timestamp" : new Date() });
+			}
+		</h:outputScript>
+		
+		<h:panelGrid id="content">
+			<f:facet name="header">Beispiel &lt;h:commandScript&gt;</f:facet>
+			<p>
+				&lt;h:commandScript&gt; indirekt in Form, geht mit Chrome, geht nicht mit Firefox.
+				<br/>
+				Fehlermeldung im Firefox: <code>InvalidStateError: XMLHttpRequest has an invalid context.</code>
+			</p>
+			<h:commandScript name="sendData" execute="@form"  action="#{ajaxController.commandScriptAction()}" />
+			<button onclick="sendToServer();">Send to Server</button>
+		</h:panelGrid>
+
+	</ui:define>
+
+</ui:composition>
