@@ -1,0 +1,33 @@
+<ui:composition 
+	xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	template="/WEB-INF/templates/main.xhtml">
+	
+	<ui:define name="css">
+		img {
+    		width: 3em;
+	    	height: auto;
+		}
+	</ui:define>
+	
+	<ui:define name="header">Ressourcen</ui:define>
+
+	<ui:define name="main">
+		
+		<h:panelGrid>
+			<f:facet name="header">Allgemeine Ressourceneinbindung (JSF/HTML)</f:facet>
+			<h:panelGroup>
+				<h:graphicImage value="/resources/images/girl-1.png" />
+				<img src="/jsf-advanced/resources/images/girl-1.png" />
+				<img src="#{resource['images/girl-1.png']}" />
+				<img src="#{resource['images:girl-1.png']}" />
+				<img src="#{request.contextPath}/javax.faces.resource/images/girl-1.png.xhtml" />
+				<img src="#{externalContext.requestContextPath}/javax.faces.resource/images/girl-1.png.xhtml" />
+			</h:panelGroup>
+		</h:panelGrid>
+		
+	</ui:define>
+
+</ui:composition>

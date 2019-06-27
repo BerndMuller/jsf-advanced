@@ -13,7 +13,7 @@ language.onkeyup = function(event) {
     else if (charList.indexOf(key) === -1) 
     	return;
 	
-	var suggestionFetch = fetch('http://localhost:8080/jsf-advanced/resources/languages/suggestions?input=' + language.value);
+	var suggestionFetch = fetch('http://localhost:8080/jsf-advanced/api/languages/suggestions?input=' + language.value);
 
 	suggestionFetch
 	  .then(function(response) { 

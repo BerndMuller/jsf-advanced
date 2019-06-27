@@ -1,0 +1,12 @@
+@charset "UTF-8";
+
+.pink {
+	background-color: pink !important;
+}
+
+#logo {
+	text-align: center;
+	padding: 2em;
+/* 	background: url('jsf-logo.png.xhtml?ln=icons'); */
+	background: url("#{resource['icons:jsf-logo.png']}");	
+}
