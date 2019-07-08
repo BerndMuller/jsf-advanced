@@ -5,8 +5,10 @@
 }
 
 #logo {
+	font-size: 140%;
+	font-weight: bold;
 	text-align: center;
 	padding: 2em;
-/* 	background: url('jsf-logo.png.xhtml?ln=icons'); */
-	background: url("#{resource['icons:jsf-logo.png']}");	
+	background: url('jsf-logo.png.xhtml?ln=icons');
+/* 	background: url("#{resource['icons:jsf-logo.png']}"); */
 }
