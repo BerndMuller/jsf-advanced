@@ -1,0 +1,32 @@
+<ui:composition 
+	xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	template="/WEB-INF/templates/main.xhtml">
+
+	<ui:define name="css">
+		.keypadButton {
+			width: 5em;
+			height: 5em;
+			font-size: 14pt;
+			margin: 2em;
+			border-radius: 4em; /* größer als halbe Höhe/Breite */
+		}
+		.keypad {
+			width: 1%;
+		}
+	</ui:define>
+	
+	<ui:define name="header">Ziffernblock</ui:define>
+	
+	<ui:define name="main">
+		<h:panelGrid id="keypad">
+			<ui:include src="#{keypadController.keypad}" />
+		</h:panelGrid>
+		<h:commandButton action="#{keypadController.toggle}" value="Umschalten">
+			<f:ajax render="keypad" />
+		</h:commandButton>
+	</ui:define>
+
+</ui:composition>

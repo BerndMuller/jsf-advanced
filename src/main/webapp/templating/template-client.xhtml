@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+	
+	<body>
+		Dieser Text wird ignoriert
+
+		<ui:composition template="template.xhtml">
+			wird auch ignoriert
+			<ui:define name="area">
+				Hier steht das eigentliche Mark Up
+				<br/><br/>
+				<a href="#{request.contextPath}/home.xhtml">zurück</a>
+			</ui:define>
+
+		</ui:composition>
+
+		wird auch ignoriert
+	</body>
+</html>
