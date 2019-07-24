@@ -1,0 +1,37 @@
+<ui:composition 
+	xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	template="/WEB-INF/templates/main.xhtml">
+
+	<ui:define name="header">Ajax</ui:define>
+	
+	<ui:define name="main">
+	
+		<h:outputScript target="body">
+			// var dataArray = ['eins', 'zwei', 'drei'];
+			// var dataArray = #{ajaxController.testData};
+			
+			
+			console.log("array2: " + '#{ajaxController.testData2}');
+			
+			var dataArray = [];
+    		<ui:repeat value="#{ajaxController.testData2}" var="elem" varStatus="varStatus">
+        		dataArray['#{varStatus.index}'] = '#{elem}';
+    		</ui:repeat>
+			
+			var dataList ="<ol><li>"+ dataArray.join('</li><li>') + "</li></ol>";
+			console.log("html: " + dataList);
+			document.getElementById('data').innerHTML = dataList;
+		</h:outputScript>
+		
+		<h:panelGrid id="content">
+			<f:facet name="header">JavaScript mit EL</f:facet>
+			<div id="data">
+			</div>
+		</h:panelGrid>
+
+	</ui:define>
+
+</ui:composition>

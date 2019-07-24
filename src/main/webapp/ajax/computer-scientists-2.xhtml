@@ -1,0 +1,32 @@
+<ui:composition 
+	xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	template="/WEB-INF/templates/main.xhtml">
+
+	<ui:define name="header">Ajax</ui:define>
+	
+	<ui:define name="main">
+
+		<h:panelGrid id="content">
+			<f:facet name="header">JavaScript mit EL</f:facet>
+			<div id="list" />
+		</h:panelGrid>
+	
+		<h:outputScript target="body">
+			//var jsonString = '#{ajaxController.famousComputerScientistsAsJsonArray}';
+			var jsonString = '#{ajaxController.famousComputerScientistsAsFakeJsonArray}';
+			console.log("jsonString: " + jsonString);
+			var jsonObject = JSON.parse(jsonString);
+			console.log("jsonObject: " + jsonObject);
+			console.log("jsonObject type: " + typeof jsonObject);
+			console.log("jsonObject isArray: " + Array.isArray(jsonObject));
+			var dataList ="<ul><li>"+ jsonObject.join('</li><li>') + "</li></ul>";
+			console.log("html: " + dataList);
+			document.getElementById('list').innerHTML = dataList;
+		</h:outputScript>
+
+	</ui:define>
+
+</ui:composition>

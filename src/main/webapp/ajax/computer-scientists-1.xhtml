@@ -1,0 +1,30 @@
+<ui:composition 
+	xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	template="/WEB-INF/templates/main.xhtml">
+
+	<ui:define name="header">Ajax</ui:define>
+	
+	<ui:define name="main">
+
+		<h:panelGrid id="content">
+			<f:facet name="header">JavaScript mit EL</f:facet>
+			<div id="list" />
+		</h:panelGrid>
+
+		<h:outputScript target="body">
+			var scientists = [];
+    		<ui:repeat value="#{ajaxController.famousComputerScientistsAsStringArray}" var="elem" varStatus="varStatus">
+        		scientists['#{varStatus.index}'] = '#{elem}';
+    		</ui:repeat>
+			
+			var dataList ="<ul><li>" + scientists.join('</li><li>') + "</li></ul>";
+			console.log("html: " + dataList);
+			document.getElementById('list').innerHTML = dataList;
+		</h:outputScript>
+
+	</ui:define>
+
+</ui:composition>

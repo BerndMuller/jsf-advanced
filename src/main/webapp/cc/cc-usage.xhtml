@@ -1,0 +1,22 @@
+<ui:composition 
+	xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:jp="http://xmlns.jcp.org/jsf/composite/jsfpraxis"
+	template="/WEB-INF/templates/main.xhtml">
+
+	<ui:define name="header">Suggestion</ui:define>
+	
+	<ui:define name="main">
+
+		<h:panelGrid>
+			Wählen Sie eine Sprache
+			<jp:suggestion value="#{suggestionController.language}" 
+				suggestions="#{suggestionController.suggestions}" 
+				typingListener="#{suggestionController.typed}" />
+		</h:panelGrid>
+		
+	</ui:define>
+
+</ui:composition>

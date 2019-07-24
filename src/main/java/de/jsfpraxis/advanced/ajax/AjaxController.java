@@ -1,9 +1,12 @@
 package de.jsfpraxis.advanced.ajax;
 
 import java.io.IOException;
+import java.util.Arrays;
 import java.util.Map;
 import java.util.Objects;
 import java.util.logging.Logger;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 import javax.enterprise.context.RequestScoped;
 import javax.faces.context.ExternalContext;
@@ -12,12 +15,16 @@ import javax.faces.context.PartialResponseWriter;
 import javax.faces.event.AjaxBehaviorEvent;
 import javax.inject.Inject;
 import javax.inject.Named;
+import javax.json.Json;
+import javax.json.JsonArray;
 
 @Named
 @RequestScoped
 public class AjaxController {
 	
 	private static final Logger logger = Logger.getLogger(AjaxController.class.getCanonicalName());
+	
+	private static final String[] FAMOUS_COMPUTER_SCIENTISTS = new String[] { "Alan Turing", "John von Neumann", "Edsger W. Dijkstra" };
 	
 	private Customer customer;
 	
@@ -111,6 +118,27 @@ public class AjaxController {
 		return "navigation-target.jsf?faces-redirect=true";
 	}
 
+	
+	public String getTestData() {
+		return "['eins', 'zwei', 'drei']";
+	}
+
+	
+	public String[] getFamousComputerScientistsAsStringArray() {
+		return FAMOUS_COMPUTER_SCIENTISTS;
+	}
+	
+	public JsonArray getFamousComputerScientistsAsJsonArray() {
+		return Json.createArrayBuilder(Arrays.asList(FAMOUS_COMPUTER_SCIENTISTS)).build();
+	}
+	
+	public String getFamousComputerScientistsAsFakeJsonArray() {
+		return Stream.of(FAMOUS_COMPUTER_SCIENTISTS)
+				.map(s -> "\"" + s + "\"")
+				.collect(Collectors.joining(",", "[", "]"));
+	}
+
+	
 	// Getter und Setter
 	public Customer getCustomer() {
 		return customer;

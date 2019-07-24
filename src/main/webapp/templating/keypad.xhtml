@@ -21,6 +21,9 @@
 	<ui:define name="header">Ziffernblock</ui:define>
 	
 	<ui:define name="main">
+		<!-- Dumme Anforderung des Fachbereichs (in XML-Kommentaren) -->
+		<ui:remove>Dumme Anforderung des Fachbereichs (in ui:remove)</ui:remove>
+		<ui:debug />
 		<h:panelGrid id="keypad">
 			<ui:include src="#{keypadController.keypad}" />
 		</h:panelGrid>
