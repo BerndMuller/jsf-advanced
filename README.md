@@ -7,19 +7,21 @@ Siehe auch <https://www.jsfpraxis.de>.
 
 Achtung: * ich arbeite noch dran, die Beispiele sind alles andere als vollständig *
 
+## Prerequisites
+
+Installieren Sie einen Java-EE-8-Application-Server und Java 11.
+
+Wir haben mit den folgenden Application-Servern getestet:
+* WildFly 17
+* Payara 5.192
+- TomEE 8.0.0-M3
+
+
 ## Getting Started
 ```
 mvn clean package
 ```
 Dann deployen Sie wie gewohnt auf Ihrem Java-EE-8-Application-Server
-
-
-### Prerequisites
-
-Java-EE-8-Application-Server!
-
-Wir haben mit WildFly 15 unter Java 11 getestet. Payara unterstützt im Augenblick nur Java 8. 
-
 
 
 ## License

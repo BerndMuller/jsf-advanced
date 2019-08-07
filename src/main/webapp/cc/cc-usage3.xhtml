@@ -6,17 +6,19 @@
 	xmlns:jp="http://xmlns.jcp.org/jsf/composite/jsfpraxis"
 	template="/WEB-INF/templates/main.xhtml">
 
-	<ui:define name="header">Suggestion (Variante 1)</ui:define>
+	<ui:define name="header">Suggestion (Variante 2 mit Facetten)</ui:define>
 	
 	<ui:define name="main">
 
 		<h:panelGrid>
-			Wählen Sie eine Sprache
 			<jp:suggestion value="#{suggestionController.language}" 
 				suggestions="#{suggestionController.suggestions}" 
-				typingListener="#{suggestionController.typed}" />
+				typingListener="#{suggestionController.typed}">
+				<f:facet name="prompt">Wählen Sie eine Sprache</f:facet>
+				<f:facet name="header">Der Table-Header</f:facet>
+			</jp:suggestion>
 		</h:panelGrid>
-		
+
 	</ui:define>
 
 </ui:composition>

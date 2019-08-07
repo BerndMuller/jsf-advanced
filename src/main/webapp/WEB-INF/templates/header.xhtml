@@ -9,74 +9,76 @@
     <nav class="nav">
 	  <ul>
 	  
-	  	<li><a href="#{request.contextPath}/home.xhtml">Home</a></li>
+	  	<li><a href="#{externalContext.applicationContextPath}/home.xhtml">Home</a></li>
 	  	
 	  	<li class="dropdown">
   			<a href="#" class="dropbtn">Templating</a>
   			<div class="dropdown-content">
-  				<a href="#{request.contextPath}/templating/template-client.xhtml">Template-Client</a>
-  				<a href="#{request.contextPath}/templating/keypad.xhtml">Parametrisiertes Include</a>
+  				<a href="#{externalContext.applicationContextPath}/templating/template-client.xhtml">Template-Client</a>
+  				<a href="#{externalContext.applicationContextPath}/templating/keypad.xhtml">Parametrisiertes Include</a>
   			</div>
   		</li>
 
 	  	<li class="dropdown">
   			<a href="#" class="dropbtn">Lokalisierung</a>
   			<div class="dropdown-content">
-  				<a href="#{request.contextPath}/i18n/intro.xhtml">Intro</a>
-  				<a href="#{request.contextPath}/i18n/locale-explicit.xhtml">Explizite Lokalisierung</a>
-  				<a href="#{request.contextPath}/i18n/numbers.xhtml">Klassen als Resource-Bundles</a>
-  				<a href="#{request.contextPath}/i18n/utf8.xhtml">UTF-8-Codierungen</a>
-  				<a href="#{request.contextPath}/i18n/locales.xhtml">Locales des JREs</a>
-  				<a href="#{request.contextPath}/i18n/title.xhtml">Lokalisiertes Property</a>
-  				<a href="#{request.contextPath}/i18n/workflow-start.xhtml">Lokalisierte Workflows</a>
-  				<a href="#{request.contextPath}/i18n/customer-bean-validation.xhtml">BV-Lokalisierung</a>
+  				<a href="#{externalContext.applicationContextPath}/i18n/intro.xhtml">Intro</a>
+  				<a href="#{externalContext.applicationContextPath}/i18n/locale-explicit.xhtml">Explizite Lokalisierung</a>
+  				<a href="#{externalContext.applicationContextPath}/i18n/numbers.xhtml">Klassen als Resource-Bundles</a>
+  				<a href="#{externalContext.applicationContextPath}/i18n/utf8.xhtml">UTF-8-Codierungen</a>
+  				<a href="#{externalContext.applicationContextPath}/i18n/locales.xhtml">Locales des JREs</a>
+  				<a href="#{externalContext.applicationContextPath}/i18n/title.xhtml">Lokalisiertes Property</a>
+  				<a href="#{externalContext.applicationContextPath}/i18n/workflow-start.xhtml">Lokalisierte Workflows</a>
+  				<a href="#{externalContext.applicationContextPath}/i18n/customer-bean-validation.xhtml">BV-Lokalisierung</a>
   			</div>
   		</li>
 
 	  	<li class="dropdown">
   			<a href="#" class="dropbtn">Komponenten-Ids</a>
   			<div class="dropdown-content">
-  				<a href="#{request.contextPath}/ids/demo-with-ids.xhtml">Explizite Ids</a>
-  				<a href="#{request.contextPath}/ids/demo-without-ids.xhtml">Implizite Ids</a>
-  				<a href="#{request.contextPath}/ids/hover.xhtml">Hover über Id</a>
-  				<a href="#{request.contextPath}/ids/check-submit.xhtml">JavaScript-Aufruf über Id</a>
+  				<a href="#{externalContext.applicationContextPath}/ids/demo-with-ids.xhtml">Explizite Ids</a>
+  				<a href="#{externalContext.applicationContextPath}/ids/demo-without-ids.xhtml">Implizite Ids</a>
+  				<a href="#{externalContext.applicationContextPath}/ids/hover.xhtml">Hover über Id</a>
+  				<a href="#{externalContext.applicationContextPath}/ids/check-submit.xhtml">JavaScript-Aufruf über Id</a>
   			</div>
   		</li>
 
 	  	<li class="dropdown">
   			<a href="#" class="dropbtn">Ajax</a>
   			<div class="dropdown-content">
-  				<a href="#{request.contextPath}/ajax/customer-ajax.xhtml"><code>jsf.ajax.request()</code></a>
-  				<a href="#{request.contextPath}/ajax/customer-ajax-standalone.xhtml"><code>jsf.ajax.request()</code> (in eigenem Form)</a>
-  				<a href="#{request.contextPath}/ajax/navigation.xhtml">Navigation</a>
-  				<a href="#{request.contextPath}/ajax/input-javascript.xhtml">Texteingabe und JavaScript</a>
-  				<a href="#{request.contextPath}/ajax/payment.xhtml">Nicht gerenderte Komponenten</a>
-  				<a href="#{request.contextPath}/ajax/datalist.html">HTML5-Datalist</a>
-  				<a href="#{request.contextPath}/ajax/suggestion.xhtml">JavaScript ohne <code>&lt;f:ajax&gt;</code></a>
-  				<a href="#{request.contextPath}/ajax/suggestion-static.xhtml">Statisches Suggestion</a>
-  				<a href="#{request.contextPath}/ajax/command-script.xhtml">&lt;h:commandScript&gt;</a>
-  				<a href="#{request.contextPath}/ajax/command-script-standalone.xhtml">&lt;h:commandScript&gt; (in eigenem Form)</a>
-  				<a href="#{request.contextPath}/ajax/delay.xhtml"><code>&lt;f:ajax delay="x" &gt;</code></a>
-  				<a href="#{request.contextPath}/ajax/computer-scientists-1.xhtml">JavasScript und EL (1)</a>
-  				<a href="#{request.contextPath}/ajax/computer-scientists-2.xhtml">JavasScript und EL (2)</a>
+  				<a href="#{externalContext.applicationContextPath}/ajax/customer-ajax.xhtml"><code>jsf.ajax.request()</code></a>
+  				<a href="#{externalContext.applicationContextPath}/ajax/customer-ajax-standalone.xhtml"><code>jsf.ajax.request()</code> (in eigenem Form)</a>
+  				<a href="#{externalContext.applicationContextPath}/ajax/navigation.xhtml">Navigation</a>
+  				<a href="#{externalContext.applicationContextPath}/ajax/input-javascript.xhtml">Texteingabe und JavaScript</a>
+  				<a href="#{externalContext.applicationContextPath}/ajax/payment.xhtml">Nicht gerenderte Komponenten</a>
+  				<a href="#{externalContext.applicationContextPath}/ajax/datalist.html">HTML5-Datalist</a>
+  				<a href="#{externalContext.applicationContextPath}/ajax/suggestion.xhtml">JavaScript ohne <code>&lt;f:ajax&gt;</code></a>
+  				<a href="#{externalContext.applicationContextPath}/ajax/suggestion-static.xhtml">Statisches Suggestion</a>
+  				<a href="#{externalContext.applicationContextPath}/ajax/command-script.xhtml">&lt;h:commandScript&gt;</a>
+  				<a href="#{externalContext.applicationContextPath}/ajax/command-script-standalone.xhtml">&lt;h:commandScript&gt; (in eigenem Form)</a>
+  				<a href="#{externalContext.applicationContextPath}/ajax/delay.xhtml"><code>&lt;f:ajax delay="x" &gt;</code></a>
+  				<a href="#{externalContext.applicationContextPath}/ajax/computer-scientists-1.xhtml">JavasScript und EL (1)</a>
+  				<a href="#{externalContext.applicationContextPath}/ajax/computer-scientists-2.xhtml">JavasScript und EL (2)</a>
   			</div>
   		</li>
 
 	  	<li class="dropdown">
   			<a href="#" class="dropbtn">Ressourcen</a>
   			<div class="dropdown-content">
-  				<a href="#{request.contextPath}/ressourcen/naming.xhtml">Allgemeine Ressourceneinbindung (JSF/HTML)</a>
-  				<a href="#{request.contextPath}/ressourcen/graphic-image.xhtml">Alternative Ressourceneinbindung mit &lt;h:graphicImage&gt;</a>
-				<a href="#{request.contextPath}/ressourcen/relocation.xhtml">Postionierung von Ressourcen</a>
-				<a href="#{request.contextPath}/ressourcen/combination.xhtml">Kombination von CSS- und Grafik-Ressourcen</a>
+  				<a href="#{externalContext.applicationContextPath}/ressourcen/naming.xhtml">Allgemeine Ressourceneinbindung (JSF/HTML)</a>
+  				<a href="#{externalContext.applicationContextPath}/ressourcen/graphic-image.xhtml">Alternative Ressourceneinbindung mit &lt;h:graphicImage&gt;</a>
+				<a href="#{externalContext.applicationContextPath}/ressourcen/relocation.xhtml">Postionierung von Ressourcen</a>
+				<a href="#{externalContext.applicationContextPath}/ressourcen/combination.xhtml">Kombination von CSS- und Grafik-Ressourcen</a>
   			</div>
   		</li>
 
 	  	<li class="dropdown">
   			<a href="#" class="dropbtn">CC</a>
   			<div class="dropdown-content">
-  				<a href="#{request.contextPath}/cc/without-cc/suggestion.xhtml">Suggestion (ohne CC)</a>
-  				<a href="#{request.contextPath}/cc/cc-usage.xhtml">Suggestion (mit CC)</a>
+  				<a href="#{externalContext.applicationContextPath}/cc/without-cc/suggestion.xhtml">Suggestion (ohne CC)</a>
+  				<a href="#{externalContext.applicationContextPath}/cc/cc-usage.xhtml">Suggestion (mit CC)</a>
+  				<a href="#{externalContext.applicationContextPath}/cc/cc-usage2.xhtml">Suggestion (mit Command-Button)</a>
+  				<a href="#{externalContext.applicationContextPath}/cc/cc-usage3.xhtml">Suggestion (mit Facetten)</a>
   			</div>
   		</li>
 	  

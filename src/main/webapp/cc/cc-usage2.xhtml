@@ -6,7 +6,7 @@
 	xmlns:jp="http://xmlns.jcp.org/jsf/composite/jsfpraxis"
 	template="/WEB-INF/templates/main.xhtml">
 
-	<ui:define name="header">Suggestion</ui:define>
+	<ui:define name="header">Suggestion (Variante 2 mit Command-Button)</ui:define>
 	
 	<ui:define name="main">
 
@@ -16,7 +16,7 @@
 				suggestions="#{suggestionController.suggestions}" 
 				typingListener="#{suggestionController.typed}">
 				<!-- cc:insertChildren -->
-				<h:commandButton action="#{suggestionController.save()}" value="Speichern" />
+				<h:commandButton action="#{suggestionController.save}" value="Speichern" />
 			</jp:suggestion>
 		</h:panelGrid>
 		

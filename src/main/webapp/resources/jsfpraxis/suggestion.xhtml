@@ -5,7 +5,8 @@
 	xmlns:cc="http://xmlns.jcp.org/jsf/composite"
 	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
 	xmlns:pt="http://xmlns.jcp.org/jsf/passthrough"
-	xmlns:jsf="http://xmlns.jcp.org/jsf">
+	xmlns:jsf="http://xmlns.jcp.org/jsf"
+	xmlns:c="http://xmlns.jcp.org/jsp/jstl/core">
 
 	<!-- siehe auch https://stackoverflow.com/questions/13009174/is-it-possible-to-update-non-jsf-components-plain-html-with-jsf-ajax -->
 
@@ -13,9 +14,13 @@
 		<cc:attribute name="value" required="true" />
 		<cc:attribute name="suggestions" required="true" />
 		<cc:attribute name="typingListener" method-signature="void listener(javax.faces.event.AjaxBehaviorEvent)" required="true" />
+		<cc:facet name="prompt" />
+		<cc:facet name="header" />
 	</cc:interface>
 	
 	<cc:implementation>
+		<h:outputStylesheet name="style.css" library="jsfpraxis" />
+		<cc:renderFacet name="prompt" />
 		<h:inputText id="language" value="#{cc.attrs.value}" pt:list="#{cc.clientId}:languages" pt:autocomplete="off">
 			<f:ajax listener="#{cc.attrs.typingListener}" event="keyup" render="languages"/>
 		</h:inputText>
@@ -24,7 +29,14 @@
 				<option>#{option}</option>
 			</ui:repeat>
 		</datalist>
+
 		<cc:insertChildren />
+
+		<c:if test="#{not empty cc.facets.header}">
+			<h:dataTable>
+				<cc:insertFacet name="header" />
+			</h:dataTable>
+		</c:if>
 	</cc:implementation>
 
 </ui:composition>

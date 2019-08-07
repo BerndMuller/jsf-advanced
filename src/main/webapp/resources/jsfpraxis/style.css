@@ -1,0 +1,6 @@
+@charset "UTF-8";
+
+
+input[type=text] {
+	border: 2px solid red;
+}

@@ -9,15 +9,15 @@ import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 import javax.annotation.PostConstruct;
-import javax.faces.component.UIComponent;
-import javax.faces.component.UINamingContainer;
 import javax.faces.context.FacesContext;
 import javax.faces.event.AjaxBehaviorEvent;
 import javax.faces.view.ViewScoped;
 import javax.inject.Named;
 
 /**
- * geht mit Chrome, macht Probleme mit Firefox
+ * Erzeugt Auswahlliste während tippen der Eingabe.
+ * 
+ * Geht mit Chrome, macht Probleme mit Firefox.
  * 
  * @author Bernd Müller
  *
@@ -38,7 +38,11 @@ public class SuggestionController implements Serializable {
 	}
 
 	public void typed(AjaxBehaviorEvent event) {
+		// TODO warum ist event null?
 		System.out.println("Event: " + event);
+		System.out.println("PartialViewContext: " + FacesContext.getCurrentInstance().getPartialViewContext()); 
+		System.out.println("PartialRequest: " + FacesContext.getCurrentInstance().getPartialViewContext().isPartialRequest()); 
+		
 		logger.info("typed 'language': " + language);
 		if (language == null) {
 			suggestions = new ArrayList<>();
