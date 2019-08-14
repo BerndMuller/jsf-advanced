@@ -5,7 +5,6 @@
     xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-facesconfig_2_3.xsd"
     version="2.3">
 
-
 	<application>
 		<locale-config>
 			<default-locale>de</default-locale>
@@ -30,5 +29,14 @@
 			<var>number</var>
 		</resource-bundle>
 	</application>
-		 
+
+<!-- 
+	<faces-config-extension>
+		<facelets-processing>
+    		<file-extension>.xhtml</file-extension>
+    		<process-as>xhtml</process-as>
+  		</facelets-processing>
+	</faces-config-extension>
+ -->
+ 
 </faces-config>

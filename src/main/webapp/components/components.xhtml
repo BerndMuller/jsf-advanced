@@ -1,0 +1,33 @@
+<ui:composition 
+	xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	template="/WEB-INF/templates/main.xhtml">
+
+	<ui:define name="header">UI-Komponenten</ui:define>
+	
+	<ui:define name="main">
+
+		<h:panelGrid>
+			<f:facet name="header">Komponenten</f:facet>
+			<!-- Variable darf nicht 'component' heißen, da vordefiniert -->
+			<h:dataTable value="#{componentController.uiComponents}" var="comp">
+				<h:column>
+					#{comp}
+				</h:column>			
+			</h:dataTable>
+		</h:panelGrid>
+
+		<h:panelGrid>
+			<f:facet name="header">HTML-Komponenten</f:facet>
+			<h:dataTable value="#{componentController.htmlComponents}" var="comp">
+				<h:column>
+					#{comp}
+				</h:column>			
+			</h:dataTable>
+		</h:panelGrid>
+		
+	</ui:define>
+
+</ui:composition>
