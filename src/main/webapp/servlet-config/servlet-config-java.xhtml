@@ -1,0 +1,52 @@
+<ui:composition 
+	xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	template="/WEB-INF/templates/main.xhtml">
+
+	<ui:define name="header">Servlet-Konfiguration in Java</ui:define>
+	
+	<ui:define name="main">
+
+		<h:panelGrid columns="2">
+			<f:facet name="header">ProjectStage</f:facet>
+			externalContext.getInitParameter("javax.faces.PROJECT_STAGE") 
+			<h:outputText value="#{servletConfigController.projectStage}" /> 
+			facesContext.getApplication().getProjectStage()
+			<h:outputText value="#{servletConfigController.projectStage2}" /> 
+		</h:panelGrid>
+
+		<h:panelGrid columns="2">
+			<f:facet name="header">Zustandsspeicherung im Client</f:facet>
+			facesContext.getApplication().getStateManager().isSavingStateInClient(facesContext)
+			<h:outputText value="#{servletConfigController.savingStateInClient}" />
+		</h:panelGrid>
+
+		<h:panelGrid>
+			<f:facet name="header">Zugriff über @InitParameterMap in Java</f:facet>
+			<h:dataTable var="entry" value="#{servletConfigController.initParams}">
+				<h:column>#{entry.key}</h:column>
+    			<h:column>#{entry.value}</h:column>
+			</h:dataTable>
+		</h:panelGrid>
+
+		<h:panelGrid>
+			<f:facet name="header">Zugriff über @InitParameterMap in Java (Prefix javax.faces)</f:facet>
+			<h:dataTable var="entry" value="#{servletConfigController.jsfInitParams}">
+				<h:column>#{entry.key}</h:column>
+    			<h:column>#{entry.value}</h:column>
+			</h:dataTable>
+		</h:panelGrid>
+
+		<h:panelGrid>
+			<f:facet name="header">FacesContext-Attribute</f:facet>
+			<h:dataTable var="entry" value="#{servletConfigController.attributes}">
+				<h:column>#{entry.key}</h:column>
+    			<h:column>#{entry.value}</h:column>
+			</h:dataTable>
+		</h:panelGrid>
+
+	</ui:define>
+
+</ui:composition>
