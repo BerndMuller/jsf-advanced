@@ -1,6 +1,6 @@
 # Weiterführende Themen
 
-Code-Beispiele zum Kapitel 5 des Buches 
+Code-Beispiele zum Kapitel 4 *Weiterführende Themen* des Buches 
 *JavaServer Faces - Ein Arbeitsbuch für die Praxis*, 3. Auflage (noch nicht erschienen)
 
 Siehe auch <https://www.jsfpraxis.de>.
@@ -9,12 +9,9 @@ Achtung: * ich arbeite noch dran, die Beispiele sind alles andere als vollständ
 
 ## Prerequisites
 
-Installieren Sie einen Java-EE-8-Application-Server und Java 11.
+Installieren Sie einen Java-EE-8-Application-Server und Java.
 
-Wir haben mit den folgenden Application-Servern getestet:
-* WildFly 17
-* Payara 5.192
-- TomEE 8.0.0-M3
+Wir haben WildFly 20 und Java 15 verwendet.
 
 
 ## Getting Started

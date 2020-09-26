@@ -6,8 +6,8 @@
 	<artifactId>jsf-advanced</artifactId>
 	<version>1.0</version>
 	<packaging>war</packaging>
-	<name>Kapitel 5: Weiterführende Themen</name>
-	<description>Beispiele für Kapitel 5</description>
+	<name>Kapitel 4: Weiterführende Themen</name>
+	<description>Beispiele für Kapitel 4</description>
 
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -32,12 +32,6 @@
 			<version>4.12</version>
 			<scope>test</scope>
 		</dependency>
-		<dependency>
-			<groupId>org.seleniumhq.selenium</groupId>
-			<artifactId>selenium-chrome-driver</artifactId>
-			<version>3.13.0</version>
-			<scope>test</scope>
-		</dependency>
 	</dependencies>
 
 	<build>
@@ -48,7 +42,7 @@
 				<artifactId>maven-compiler-plugin</artifactId>
 				<version>${maven-compiler-plugin.version}</version>
 				<configuration>
-					<release>11</release>
+					<release>15</release>
 				</configuration>
 			</plugin>
 			
@@ -83,7 +77,7 @@
 				<artifactId>maven-javadoc-plugin</artifactId>
 				<version>2.10.3</version>
 				<configuration>
-					<header>JavaServer Faces - Kapitel 5</header>
+					<header>JavaServer Faces - Kapitel 4</header>
 					<doctitle>Weiterführende Themen</doctitle>
 					<footer>Copyright &#169; 2018 Bernd Müller.</footer>
 				</configuration>
