@@ -1,0 +1,27 @@
+<ui:composition 
+	xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	template="/WEB-INF/templates/main.xhtml">
+
+	<ui:define name="header">POST- versus GET-Requests (Start)</ui:define>
+	
+	<ui:define name="main">
+
+		<h:panelGrid id="content">
+			<f:facet name="header">POST versus GET</f:facet>
+			<h:commandButton action="#{getController.action}" value="POST mit &lt;h:commandButton&gt;" />
+			<h:commandLink action="#{getController.action}" value="POST mit &lt;h:commandLink&gt;" />
+			<h:button value="GET mit &lt;h:button&gt;" />
+			<h:link value="GET mit &lt;h:link&gt;" />
+			<h:button value="GET mit &lt;h:button&gt; und outcome" outcome="target.xhtml" />
+			<h:link value="GET mit &lt;h:link&gt; und outcome" outcome="target.xhtml" />
+			<h:button value="GET mit &lt;h:button&gt; und outcome + viewParam" outcome="target.xhtml">
+				<f:param name="message" value="Hello World!" />
+			</h:button>
+		</h:panelGrid>
+
+	</ui:define>
+
+</ui:composition>
