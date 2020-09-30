@@ -5,14 +5,12 @@
 	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
 	template="/WEB-INF/templates/main.xhtml">
 
-	<ui:define name="header">Flash-Scope Startseite</ui:define>
+	<ui:define name="header">Flash-Scope letzte Seite</ui:define>
 	
 	<ui:define name="main">
         
 		<h:panelGrid>
-			Wählen Sie aus: <h:inputText value="#{fromViewController.input}" />
-			<h:commandButton action="#{fromViewController.save}" value="Speichern" />
-			<h:commandButton action="#{fromViewController.propagateMessage}" value="FacesMessage weiterreichen" />
+			Ihre Eingabe '#{flash['input']}' wurde gespeichert.
 		</h:panelGrid>
 
 	</ui:define>

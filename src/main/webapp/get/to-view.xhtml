@@ -10,7 +10,21 @@
 	<ui:define name="main">
         
 		<h:panelGrid>
-			Ihre Eingabe blub wurde gespeichert
+			Ihre Eingabe '#{toViewController.inputFromOtherController1}' wurde gespeichert.
+			<br />
+			Ihre Eingabe '#{toViewController.inputFromOtherController2}' wurde gespeichert.
+			<br />
+			Ihre Eingabe '#{toViewController.inputFromOtherController3}' wurde gespeichert.
+			<br />
+			Ihre Eingabe '#{flash['input']}' wurde gespeichert.
+			<!-- 
+			<br />
+			Ihre Eingabe '#{flash.keep.input}' wurde gespeichert.
+			Ihre Eingabe '#{flash.keep['input']}' wurde gespeichert.
+			 -->
+			<br />
+			FacesMessage: <h:messages globalOnly="true"/>
+			<h:commandButton action="last-view.xhtml?faces-redirect=true" value="noch ne Seite" />
 		</h:panelGrid>
 
 	</ui:define>
